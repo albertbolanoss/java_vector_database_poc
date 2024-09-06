@@ -58,3 +58,12 @@ gradlew clean build
 # For Windows
 gradlew bootRun
 ```
+
+### Access to endpoints
+
+| Description                               | Example                                             |
+|-------------------------------------------|-----------------------------------------------------|
+| Convert text to Vector                    | Get http://localhost:8080/ai/embedding?query=[text] |
+| Create the default collection (java_demo) | Post http://localhost:8080/ai/create                |
+| Add Sample Vectors to collection (java_demo)                    | Post http://localhost:8080/ai/add|
+| Drop the default collection (java_demo)   | Delete http://localhost:8080/ai/create              |
