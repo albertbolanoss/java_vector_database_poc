@@ -1,0 +1,19 @@
+spring:
+  ai:
+    openai:
+      api-key: ${OPEN_IA_SECRET_KEY}
+      embedding:
+        options:
+          model: text-embedding-ada-002
+    vectorstore:
+      milvus:
+        client:
+          host: "localhost"
+          port: 19530
+          username:
+          password:
+        databaseName: "default"
+        collectionName: "collection_java_demo"
+        embeddingDimension: 768
+        indexType:
+        metricType:
