@@ -61,9 +61,9 @@ gradlew bootRun
 
 ### Access to endpoints
 
-| Description                               | Example                                             |
-|-------------------------------------------|-----------------------------------------------------|
-| Convert text to Vector                    | Get http://localhost:8080/ai/embedding?query=[text] |
-| Create the default collection (java_demo) | Post http://localhost:8080/ai/create                |
-| Add Sample Vectors to collection (java_demo)                    | Post http://localhost:8080/ai/add|
-| Drop the default collection (java_demo)   | Delete http://localhost:8080/ai/create              |
+The application start on the URL: http://localhost:8080
+
+| Description   | Method | URI         | Parameters                                                       |
+|---------------|--------|-------------|------------------------------------------------------------------|
+| Search        | Get    | /document   | query=[to search] & topK=[Num max result]                        | 
+| Add Documents | Post   | /document   | [ { "content": "[content]", "metadata": { "key1": "value1" } } ] |
