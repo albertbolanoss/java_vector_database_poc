@@ -1,17 +1,18 @@
-package labs.milvusdb.service.valueobject;
+package labs.milvusdb.controller.dto;
 
 import java.util.Map;
 
-public class DocumentVO {
+public class DocumentRes {
+
     private String id;
 
     private String content;
 
     private Map<String, Object> metadata;
 
-    public DocumentVO() { }
+    public DocumentRes() { }
 
-    public DocumentVO(String id, String content, Map<String, Object> metadata) {
+    public DocumentRes(String id, String content, Map<String, Object> metadata) {
         this.id = id;
         this.content = content;
         this.metadata = metadata;

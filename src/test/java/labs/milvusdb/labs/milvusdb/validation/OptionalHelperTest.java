@@ -1,7 +1,7 @@
 package labs.milvusdb.labs.milvusdb.validation;
 
 import labs.milvusdb.exception.MissingParameterException;
-import labs.milvusdb.service.valueobject.DocumentVO;
+import labs.milvusdb.service.valueobject.AddDocumentVO;
 import labs.milvusdb.validation.OptionalHelper;
 import org.junit.jupiter.api.Test;
 
@@ -91,13 +91,13 @@ class OptionalHelperTest {
     void testDocumentVO() {
         Map<String, Object> invalidMap = Map.of("", "", "key2", "value2");
 
-        assertThrows(MissingParameterException.class, () -> new DocumentVO(null));
-        assertThrows(MissingParameterException.class, () -> new DocumentVO(""));
-        assertThrows(MissingParameterException.class, () -> new DocumentVO(" "));
+        assertThrows(MissingParameterException.class, () -> new AddDocumentVO(null));
+        assertThrows(MissingParameterException.class, () -> new AddDocumentVO(""));
+        assertThrows(MissingParameterException.class, () -> new AddDocumentVO(" "));
 
-        assertThrows(MissingParameterException.class, () -> new DocumentVO(" T ", null));
-        assertThrows(MissingParameterException.class, () -> new DocumentVO(" T ", Map.of()));
-        assertThrows(MissingParameterException.class, () -> new DocumentVO(" T ", invalidMap));
+        assertThrows(MissingParameterException.class, () -> new AddDocumentVO(" T ", null));
+        assertThrows(MissingParameterException.class, () -> new AddDocumentVO(" T ", Map.of()));
+        assertThrows(MissingParameterException.class, () -> new AddDocumentVO(" T ", invalidMap));
 
     }
 }
