@@ -1,7 +1,7 @@
 spring:
   ai:
     openai:
-      api-key: ${OPEN_IA_SECRET_KEY}
+      api-key: ${SPRING_AI_OPENAI_API_KEY}
       embedding:
         options:
           model: text-embedding-ada-002
@@ -10,13 +10,11 @@ spring:
         client:
           host: "localhost"
           port: 19530
-          username: ""
-          password: ""
+          username: "root"
+          password: "milvus"
         databaseName: "default"
-        collectionName: "java_demo"
+        collectionName: "vector_store"
         embeddingDimension: 1536
         indexType: IVF_FLAT
         metricType: COSINE
-        fields:
-          idFieldName: "doc_id"
-          embeddingFieldName: "embedding"
+        initializeSchema: true

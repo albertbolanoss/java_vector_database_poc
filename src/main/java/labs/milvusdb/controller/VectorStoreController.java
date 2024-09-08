@@ -1,6 +1,7 @@
 package labs.milvusdb.controller;
 
-import labs.milvusdb.service.VectorStoreService;
+import labs.milvusdb.component.VectorStoreComponent;
+import labs.milvusdb.component.VectorStoreService;
 import org.springframework.ai.document.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,6 +17,9 @@ import java.util.List;
 public class VectorStoreController {
     @Autowired
     private VectorStoreService vectorStoreService;
+
+    @Autowired
+    private VectorStoreComponent vectorStoreComponent;
 
     @PostMapping("/ai/create")
     public void createCollection() {
@@ -36,4 +40,5 @@ public class VectorStoreController {
     public List<Document> search(@RequestParam(value = "query", defaultValue = "Efficient data processing and retrieval") String query) {
         return vectorStoreService.searchSimilarDocuments(query);
     }
+
 }

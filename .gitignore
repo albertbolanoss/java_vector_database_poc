@@ -39,3 +39,6 @@ out/
 
 ### Environment ###
 env.properties
+
+### Docker Compose ###
+docker_compose/volumes

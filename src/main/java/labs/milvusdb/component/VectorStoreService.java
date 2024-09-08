@@ -1,4 +1,4 @@
-package labs.milvusdb.service;
+package labs.milvusdb.component;
 
 import io.milvus.client.MilvusServiceClient;
 import io.milvus.grpc.DataType;
@@ -33,14 +33,19 @@ public class VectorStoreService {
                 .withName("id")
                 .withDataType(DataType.Int64)
                 .withPrimaryKey(true)
-                .withAutoID(true)  // Si deseas que el ID se genere automáticamente
+                .withAutoID(true)
                 .build();
-
 
         FieldType embeddingField = FieldType.newBuilder()
                 .withName("embedding")
                 .withDataType(DataType.FloatVector)
                 .withDimension(1536)  // Dimensión del embedding
+                .build();
+
+        FieldType textField = FieldType.newBuilder()
+                .withName("text")
+                .withDataType(DataType.VarChar)
+                .withMaxLength(1024)
                 .build();
 
 
@@ -49,7 +54,8 @@ public class VectorStoreService {
                 .withDescription("A collection for storing AI-related documents")
                 .addFieldType(idField)
                 .addFieldType(embeddingField)
-                .withShardsNum(2)  // Número de shards
+                .addFieldType(textField)
+                .withShardsNum(2)
                 .build();
 
         milvusClient.createCollection(createCollectionParam);
@@ -65,7 +71,6 @@ public class VectorStoreService {
 
         milvusClient.createIndex(createIndexParam);
 
-        System.out.println("Collection 'collection_java_demo' created successfully.");
     }
 
     public void addDocuments() {
