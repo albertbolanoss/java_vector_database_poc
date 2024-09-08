@@ -17,7 +17,11 @@ jobs:
           distribution: 'temurin'
 
       - name: Install Gradle
-        run: sudo apt-get install gradle -y
+        run: |
+          wget https://services.gradle.org/distributions/gradle-8.7-bin.zip
+          unzip gradle-7.3-bin.zip
+          sudo mv gradle-7.3 /opt/gradle
+          sudo ln -s /opt/gradle/bin/gradle /usr/bin/gradle
 
       - name: Cache Gradle dependencies
         uses: actions/cache@v2
