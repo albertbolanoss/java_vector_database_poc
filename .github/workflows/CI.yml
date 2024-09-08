@@ -19,8 +19,8 @@ jobs:
       - name: Install Gradle
         run: |
           wget https://services.gradle.org/distributions/gradle-8.7-bin.zip
-          unzip gradle-7.3-bin.zip
-          sudo mv gradle-7.3 /opt/gradle
+          unzip gradle-8.7-bin.zip
+          sudo mv gradle-8.7 /opt/gradle
           sudo ln -s /opt/gradle/bin/gradle /usr/bin/gradle
 
       - name: Cache Gradle dependencies
