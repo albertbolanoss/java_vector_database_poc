@@ -1,10 +1,11 @@
-# Spring AI & Milvus Vector Database 
+# Spring AI
 
 ## References:
 
-- [Spring AI.](https://docs.spring.io/spring-ai/reference/api/vectordbs/milvus.html)
+- [Spring AI Milvus](https://docs.spring.io/spring-ai/reference/api/vectordbs/milvus.html)
 - [Milvus Documentation.](https://milvus.io/)
 - [Vector Store.](https://zilliz.com/blog/spring-ai-and-milvus-using-milvus-as-spring-ai-vector-store)
+- [Spring AI Chat](https://docs.spring.io/spring-ai/reference/api/chat/openai-chat.html)
 
 ## Pre requirements
 
@@ -63,7 +64,9 @@ gradlew bootRun
 
 The application start on the URL: http://localhost:8080
 
-| Description   | Method | URI         | Parameters                                                       |
-|---------------|--------|-------------|------------------------------------------------------------------|
-| Search        | Get    | /document   | query=[to search] & topK=[Num max result]                        | 
-| Add Documents | Post   | /document   | [ { "content": "[content]", "metadata": { "key1": "value1" } } ] |
+| Description   | Method | URI        | Parameters                                                       |
+|---------------|--------|------------|------------------------------------------------------------------|
+| Search        | Get    | /document  | query=[to search] & topK=[Num max result]                        | 
+| Add Documents | Post   | /document  | [ { "content": "[content]", "metadata": { "key1": "value1" } } ] |
+| Chat          | Get    | /chat      | message=[query]                                                  |
+| Chat          | Get    | /chat/sync | message=[query]                                                  |
